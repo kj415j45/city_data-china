@@ -1,0 +1,27 @@
+name: 构建数据
+
+on: workflow_dispatch
+
+jobs:
+  spider:
+    name: 爬取数据
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 签出代码
+        uses: actions/checkout@v3
+
+      - name: 配置 PHP 环境
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: 运行爬虫
+        run: |
+          php main.php
+
+      - name: 导出结果
+        uses: actions/upload-artifact@v3
+        with:
+          name: result
+          path: dist/
