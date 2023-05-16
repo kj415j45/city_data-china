@@ -20,6 +20,10 @@ jobs:
         run: |
           php main.php
 
+      - name: 运行检查
+        run: |
+          php check.php
+
       - name: 导出结果
         uses: actions/upload-artifact@v3
         with:

@@ -1,2 +1,7 @@
 dist/*
 !dist/.gitkeep
+
+merge/*
+!merge/.gitkeep
+
+*.log
