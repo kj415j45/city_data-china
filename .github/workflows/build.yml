@@ -22,6 +22,7 @@ jobs:
 
       - name: 运行检查
         run: |
+          cp -r dist/ merge/
           php check.php
 
       - name: 导出结果
