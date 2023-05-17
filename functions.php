@@ -35,7 +35,7 @@ function getDistricts(string $url) {
 
     $districtMatches = [];
     // <a href="10/451027.html">凌云县</a>
-    $districtPattern = '/<a href="\d{2}\/(\d{6})\.html">([^\d]*)<\/a>/';
+    $districtPattern = '/<a href="\d{2}\/(\d+)\.html">([^\d]*)<\/a>/';
     preg_match_all($districtPattern, $source, $districtMatches);
 
     $districts = [];
