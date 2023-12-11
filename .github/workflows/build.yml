@@ -1,6 +1,16 @@
 name: 构建数据
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      safe:
+        description: 是否开启安全模式 (1 req/s)
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+        required: true
+        default: 'false'
 
 jobs:
   spider:
@@ -18,7 +28,7 @@ jobs:
 
       - name: 运行爬虫
         run: |
-          php main.php
+          DEBUG="true" SAFE="${{ github.event.inputs.safe }}" php main.php
 
       - name: 运行检查
         run: |

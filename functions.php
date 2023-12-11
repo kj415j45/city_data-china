@@ -1,7 +1,7 @@
 <?php
 
 function getProvinces(string $url) {
-    $source = @gzdecode(file_get_contents($url));
+    $source = file_get_contents($url);
 
     $provinceMatches = [];
     // <a href="21.html">辽宁省<br /></a>
@@ -16,7 +16,7 @@ function getProvinces(string $url) {
 }
 
 function getCities(string $url) {
-    $source = @gzdecode(file_get_contents($url));
+    $source = file_get_contents($url);
 
     $cityMatches = [];
     // <a href="45/4505.html">北海市</a>
@@ -31,7 +31,7 @@ function getCities(string $url) {
 }
 
 function getDistricts(string $url) {
-    $source = @gzdecode(file_get_contents($url));
+    $source = file_get_contents($url);
 
     $districtMatches = [];
     // <a href="10/451027.html">凌云县</a>
