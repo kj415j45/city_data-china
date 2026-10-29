@@ -1,11 +1,9 @@
 <?php
 
-$base = 'http://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm';
-$year = '2022';
-$baseURL = "{$base}/{$year}";
-
 require_once('functions.php');
 
-$districts = getDistricts($baseURL.'/44/4419.html');
+$cookie = getenv('MCA_COOKIE') ?: '';
+$tableName = getAdministrativeTableName($cookie);
+$divisions = getAdministrativeDivisions('441900000', $tableName, $cookie);
 
-echo json_encode($districts, JSON_UNESCAPED_UNICODE);
+echo json_encode($divisions, JSON_UNESCAPED_UNICODE);
